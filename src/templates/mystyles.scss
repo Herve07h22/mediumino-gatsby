@@ -1,0 +1,9 @@
+@charset "utf-8";
+// If need, change your variables before importing Bulma
+// $title-color: #ff0000;
+
+.lien {
+    cursor: pointer;
+}
+
+@import "~bulma/bulma.sass";

@@ -1,0 +1,12 @@
+{
+  "name": "gatsby-source-scrapinghub",
+  "version": "1.0.0",
+  "description": "Inject Scraping hub results into Gatsby data",
+  "main": "index.js",
+  "author": "Herve07h22",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
+}
