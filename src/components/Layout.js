@@ -1,18 +1,13 @@
 import React from "react"
 import SiteMetadata from './SiteMetadata'
+import Header from './Header'
+import "./mystyles.scss"
 
-const Layout = ({nbArticles, children}) => (
+const Layout = ({children}) => (
 
     <div className="container">
         <SiteMetadata />
-        <section className="section">
-            <div className="container">
-                <h1 className="title">Une sélection des meilleurs articles en Français</h1>
-                <h2 className="subtitle">
-                    Une sélection de {nbArticles} articles, actualisée chaque jour.
-                </h2>
-            </div>
-        </section>
+        <Header /> 
 
         <section className="section">
             <div className="container">

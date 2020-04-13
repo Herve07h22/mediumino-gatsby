@@ -12,15 +12,17 @@ exports.sourceNodes = (
     // Helper function that processes a photo to match Gatsby's node structure
     const processItem = item => {
         const nodeId = createNodeId(`scrapinghub-item-${item.postId}`)
-        const nodeContent = JSON.stringify(item)
-        const nodeData = Object.assign({}, item, {
+        // Do we have an image ?
+        const itemWithImage = item.postPreviewImage ? {...item, postPreviewImage:`https://cdn-images-1.medium.com/max/200/${item.postPreviewImage}`} : {...item, postPreviewImage:"https://source.unsplash.com/200x110/"}
+        const nodeContent = JSON.stringify(itemWithImage)
+        const nodeData = Object.assign({}, itemWithImage, {
             id: nodeId,
             parent: null,
             children: [],
             internal: {
                 type: `scrapingHubItem`,
                 content: nodeContent,
-                contentDigest: createContentDigest(item),
+                contentDigest: createContentDigest(itemWithImage),
             },
         })
         return nodeData

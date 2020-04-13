@@ -1,7 +1,8 @@
 import React from "react"
 
 const Post = ({index, postId, postTitle, postFirstPublishedAt, postTotalClapCount, userName, userId, postSlug, postPreviewImage, name}) => {
-    const photo = postPreviewImage ? `https://cdn-images-1.medium.com/max/200/${postPreviewImage}` : "https://source.unsplash.com/200x110/"
+    //const photo = postPreviewImage ? `https://cdn-images-1.medium.com/max/200/${postPreviewImage}` : "https://source.unsplash.com/200x110/"
+    const photo = postPreviewImage
     const options = { year: 'numeric', month: 'long', day: 'numeric' }
     const gotoArticle = () => window.location = `https://medium.com/@${userName}/${postSlug}`
     const formatLargeNumber = value => value > 1000 ? `${Math.round(value/100)/10}k` : value
