@@ -30,6 +30,7 @@ const SiteMetadata = () => {
         />
         <meta content={description} name="description"></meta>
         <meta property="og:url" content={siteUrl} />
+        <meta property="og:title" content={title} />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="fr" />
         <meta property="og:site_name" content={title} />
@@ -39,6 +40,7 @@ const SiteMetadata = () => {
         <meta property="og:description" content={description} />
 
         <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content={title} />
         <script defer id="fairlytics-id-ajcu6jd9k7ysd6" fairlyticskey="ad6a61c0-8186-4f5d-a103-9593af8cd49a" src="https://fairlytics.netlify.com/dist/js/tag.js"></script>
 
     </Helmet>

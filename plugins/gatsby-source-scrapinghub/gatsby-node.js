@@ -27,7 +27,7 @@ exports.sourceNodes = (
     }
 
     // plugin code goes here...
-    console.log("Testing my plugin", configOptions)
+    //console.log("Testing my plugin", configOptions)
     const apiUrl = `https://storage.scrapinghub.com/items/${configOptions.project}?apikey=${configOptions.key}`
 
     console.log("apiUrl:", apiUrl)
