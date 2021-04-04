@@ -41,7 +41,7 @@ const SiteMetadata = () => {
 
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:title" content={title} />
-        <script defer id="fairlytics-id-ajcu6jd9k7ysd6" fairlyticskey="ad6a61c0-8186-4f5d-a103-9593af8cd49a" src="https://fairlytics.netlify.com/dist/js/tag.js"></script>
+        <script defer id="fairlytics-id-ajcu6jd9k7ysd6" fairlyticskey="0fdc21bc-1494-46b6-ae4b-cf535064fce4" src="https://fairlytics.netlify.com/dist/js/tag.js"></script>
 
     </Helmet>
   )
