@@ -8,8 +8,9 @@ module.exports = {
   siteMetadata: {
     title: "Les suggestions de lectures et d'auteurs français dans Medium",
     siteUrl: "https://mediumino.fr",
-    description: "Medium.com version France : Une selection des meilleurs articles de Medium écrits en français.",
-    image: "Mediumino.jpg"
+    description:
+      "Medium.com version France : Une selection des meilleurs articles de Medium écrits en français.",
+    image: "Mediumino.jpg",
   },
   plugins: [
     "gatsby-plugin-sass",
@@ -24,6 +25,4 @@ module.exports = {
       },
     },
   ],
-}
-
-
+};

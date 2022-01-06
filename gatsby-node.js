@@ -1,38 +1,56 @@
-const path = require(`path`)
-const { createRemoteFileNode } = require("gatsby-source-filesystem")
+const path = require(`path`);
+const { createRemoteFileNode } = require("gatsby-source-filesystem");
 
 exports.createPages = async ({ graphql, actions }) => {
-    const { createPage }    = actions
-    const PageYearTemplate  = path.resolve(`./src/templates/PageYear.js`)
-    const anneeEnCours      = new Date().getFullYear()
+  const { createPage } = actions;
+  const PageYearTemplate = path.resolve(`./src/templates/PageYear.js`);
+  const anneeEnCours = new Date().getFullYear();
 
-    return graphql(`
-    query listYears {
-        allScrapingHubItem(sort: {fields: year, order: ASC}) {
-        distinct(field: year)
+  return graphql(
+    `
+      query listYears {
+        allScrapingHubItem(sort: { fields: year, order: ASC }) {
+          distinct(field: year)
         }
+      }
+    `,
+    { limit: 6 }
+  ).then((result) => {
+    if (result.errors) {
+      throw result.errors;
     }
-    `, { limit: 6 }).then(result => {
-        if (result.errors) {
-            throw result.errors
-        }
 
-        // Création de la page toutes les années
-        createPage({
-            path:'all',
-            component: PageYearTemplate,
-        })
+    // Création de la page toutes les années
+    createPage({
+      path: "all",
+      component: PageYearTemplate,
+    });
 
-        // Création des pages par année
-        result.data.allScrapingHubItem.distinct.forEach(annee => 
-            createPage({
-            path: parseInt(annee)===anneeEnCours ? '/' : ('annee-'+annee),
-            component: PageYearTemplate,
-            context: { annee: parseInt(annee),},
-            })
+    // Création des pages par année
+
+    const anneeHomePage = result.data.allScrapingHubItem.distinct.length
+      ? parseInt(
+          result.data.allScrapingHubItem.distinct[
+            result.data.allScrapingHubItem.distinct.length - 1
+          ]
         )
-    })
-}
+      : anneeEnCours;
+
+    createPage({
+      path: "/",
+      component: PageYearTemplate,
+      context: { annee: anneeHomePage },
+    });
+
+    result.data.allScrapingHubItem.distinct.forEach((annee) =>
+      createPage({
+        path: "annee-" + annee,
+        component: PageYearTemplate,
+        context: { annee: parseInt(annee) },
+      })
+    );
+  });
+};
 /*
 exports.onCreateNode = async ({
     node,
