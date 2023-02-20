@@ -44,8 +44,8 @@ const SiteMetadata = () => {
       <script
         defer
         id="fairlytics-id-ajcu6jd9k7ysd6"
-        fairlyticskey="5d3ebce9f116a5b68efab2f0d4d69a56"
-        src="https://9writers.com/tag/tag.js"
+        data-fairlyticskey="5d3ebce9f116a5b68efab2f0d4d69a56"
+        src="https://app.9writers.com/tag/tag.js"
       ></script>
     </Helmet>
   );
